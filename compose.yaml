@@ -1,0 +1,14 @@
+include:
+   - infra.yaml
+services:
+   rasa:
+    image: rasa/rasa:3.5.5
+    ports:
+      - 5005:5005
+    volumes:
+      - ../RetrieverReader/:/app
+    command: 
+      - run
+      - --enable-api
+      - --cors
+      - '*'

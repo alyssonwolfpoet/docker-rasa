@@ -1,0 +1,7 @@
+services:
+  action-server:
+    image: rasa/rasa-sdk:1.10.2
+    volumes:
+      - ./actions:/app/actions
+    ports:
+      - 5055:5055
