@@ -1,7 +1,12 @@
 services:
-  action-server:
-    image: rasa/rasa-sdk:1.10.2
+  action:
+    image: action_server
+    build:
+      context: ./actions
     volumes:
-      - ./actions:/app/actions
+      - ./actions:/app
     ports:
-      - 5055:5055
+      - "5055:5055"
+    command : python -m rasa run  actions
+    networks:
+      - rasa-networks
